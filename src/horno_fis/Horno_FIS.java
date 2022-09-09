@@ -22,13 +22,13 @@ public class Horno_FIS {
         // Establecer las entradas del sistema
         fis.setVariable("humedad", 3);
         fis.setVariable("intensidad", 6);
-        fis.setVariable("volumen", 6);
+        fis.setVariable("volumen", 2);
 
         // Inicia el funcionamiento del sistema
         fis.evaluate();
 
         // Muestra los gráficos de las variables de entrada y salida
-        JFuzzyChart.get().chart(fis.getFunctionBlock("horno"));
+        JFuzzyChart.get().chart(fis.getFunctionBlock("tipper"));
         
         /*
         // Muestra el conjunto difuso sobre el que se calcula el COG
@@ -38,7 +38,7 @@ public class Horno_FIS {
              
         // Imprime el valor concreto de salida del sistema
         double salida = fis.getVariable("temperatura").getLatestDefuzzifiedValue();
-        System.out.println("Para los valores de entrada, la remperatura sugerida es: " + String.format("%.1f", salida) + "%\n");
+        System.out.println("Para los valores de entrada, la temperatura sugerida para el horno es: " + String.format("%.1f", salida) + "°C\n");
         
         /*
         // Muestra las reglas y el valor de salida de cada una despues de aplicar las operaciones lógicas

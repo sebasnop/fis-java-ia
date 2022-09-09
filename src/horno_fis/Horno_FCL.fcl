@@ -50,13 +50,15 @@ RULEBLOCK No1
         ACT : MIN;	// Usa el metodo 'min' para la activación/implicación (trunca)
         ACCU : MAX;	// Usa el 'max' para la acumulación/agregación
 
-        RULE 1 : IF (servicio IS pobre) OR (comida IS rancia) THEN propina IS baja;
-        RULE 2 : IF (servicio IS bueno) THEN propina IS promedio; 
-        RULE 3 : IF (servicio IS excelente) OR (comida IS deliciosa) THEN propina IS generosa;
-        RULE 4 : IF (servicio IS pobre) AND (comida IS deliciosa) THEN propina IS promedio;
-
-//      RULE N : IF (var1 IS a) AND ((var2 IS b) AND ((var3 IS c) AND (var4 IS d)))
-//      THEN salida1 IS x, salida2 IS y;
+        RULE 1 : IF (intensidad IS baja) AND (humedad IS baja) THEN temperatura IS baja;
+        RULE 2 : IF (intensidad IS baja) AND (humedad IS media) AND ((volumen IS pequeno) OR (volumen IS mediano)) THEN temperatura IS media;
+        RULE 3 : IF (intensidad IS baja) AND (humedad IS media) AND (volumen IS grande) THEN temperatura IS alta;
+        RULE 4 : IF (intensidad IS baja) AND (humedad IS alta) AND (volumen IS pequeno) THEN temperatura IS media;
+        RULE 5 : IF (intensidad IS baja) AND (humedad IS alta) AND ((volumen IS mediano) OR (volumen IS grande)) THEN temperatura IS alta;
+        RULE 6 : IF (intensidad IS alta) AND (humedad IS baja) THEN temperatura IS baja;
+        RULE 7 : IF (intensidad IS alta) AND (humedad IS media) AND ((volumen IS pequeno) OR (volumen IS mediano)) THEN temperatura IS baja;
+        RULE 8 : IF (intensidad IS alta) AND (humedad IS media) AND (volumen IS grande) THEN temperatura IS media;
+        RULE 9 : IF (intensidad IS alta) AND (humedad IS alta) THEN temperatura IS media;
 END_RULEBLOCK
 
 END_FUNCTION_BLOCK
