@@ -4,14 +4,16 @@
 
 Hecho por:
 
-Sebastián Valencia Zapata
+**Sebastián Valencia Zapata**
 sevalenciaz@unal.edu.co
 
-Introducción a la Inteligencia Artificial
-Grupo 2
+**Introducción a la Inteligencia Artificial**
 
-Docente Demetrio Arturo Ovalle Carranza
-Monitora María Alejandra Muñoz Alarcón
+- Grupo 2
+
+- Docente Demetrio Arturo Ovalle Carranza
+
+- Monitora María Alejandra Muñoz Alarcón
 
 ## Caso de uso
 
