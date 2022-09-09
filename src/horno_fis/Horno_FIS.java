@@ -10,7 +10,7 @@ public class Horno_FIS {
     public static void main(String[] args) {
         
         // Carga el archivo de lenguaje de control difuso 'FCL'
-        String fileName = "src/tipper_fis/Tipper_FCL.fcl";
+        String fileName = "src/horno_fis/Horno_FCL.fcl";
         FIS fis = FIS.load(fileName, true);
         
         // En caso de error
@@ -20,14 +20,15 @@ public class Horno_FIS {
         }
         
         // Establecer las entradas del sistema
-        fis.setVariable("servicio", 3);
-        fis.setVariable("comida", 6);
+        fis.setVariable("humedad", 3);
+        fis.setVariable("intensidad", 6);
+        fis.setVariable("volumen", 6);
 
         // Inicia el funcionamiento del sistema
         fis.evaluate();
 
         // Muestra los gráficos de las variables de entrada y salida
-        JFuzzyChart.get().chart(fis.getFunctionBlock("tipper"));
+        JFuzzyChart.get().chart(fis.getFunctionBlock("horno"));
         
         /*
         // Muestra el conjunto difuso sobre el que se calcula el COG
@@ -36,8 +37,8 @@ public class Horno_FIS {
         */
              
         // Imprime el valor concreto de salida del sistema
-        double salida = fis.getVariable("propina").getLatestDefuzzifiedValue();
-        System.out.println("Para los valores de entrada la propina sugerida es: " + String.format("%.1f", salida) + "%\n");
+        double salida = fis.getVariable("temperatura").getLatestDefuzzifiedValue();
+        System.out.println("Para los valores de entrada, la remperatura sugerida es: " + String.format("%.1f", salida) + "%\n");
         
         /*
         // Muestra las reglas y el valor de salida de cada una despues de aplicar las operaciones lógicas

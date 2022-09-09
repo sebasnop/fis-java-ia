@@ -4,45 +4,45 @@ FUNCTION_BLOCK tipper	// Definición de bloque
 
 // Definición de las variables de entrada
 VAR_INPUT				
-        servicio : REAL; RANGE := (0 .. 10);
-        comida : REAL; RANGE := (0 .. 10);
+        humedad : REAL; RANGE := (0 .. 10);
+        intensidad : REAL; RANGE := (0 .. 10);
+        volumen : REAL; RANGE := (0 .. 10);
 END_VAR
 
 // Definición de las variables de salida
 VAR_OUTPUT				
-        propina : REAL; RANGE := (0 .. 20);
-//      otra_var : REAL; RANGE := (A .. B);
+        temperatura : REAL; RANGE := (165 .. 225);
 END_VAR
 
-// Fuzzificación de la variable de entrada 'servicio'
-FUZZIFY servicio
-        TERM pobre := gauss 0 1.5; 
-        TERM bueno := gauss 5 1.5;
-        TERM excelente := gauss 10 1.5;
+// Fuzzificación de la variable de entrada 'humedad'
+FUZZIFY humedad
+        TERM baja := trape 0 0 0.5 4.5;
+        TERM media := trian 0.5 5 9.5;
+        TERM alta := trape 5.5 9.5 10 10;
 END_FUZZIFY
 
-// Fuzzificación de la variable de entrada 'comida'
-FUZZIFY comida
-        TERM rancia := (0, 0) (0, 1) (3, 1) (7, 0);
-        TERM deliciosa := (3, 0) (7, 1) (10, 1) (10, 0);
+// Fuzzificación de la variable de entrada 'intensidad'
+FUZZIFY intensidad
+        TERM baja := trape 0 0 3 8;
+        TERM alta := trape 4 9 10 10;
 END_FUZZIFY
 
-// Defuzzificación de la variable de salida 'propina'
-DEFUZZIFY propina
-        TERM baja := trape 0 0 6 10;
-        TERM promedio := trian 6 10 14;
-        TERM generosa := trape 10 14 20 20;
+// Fuzzificación de la variable de entrada 'volumen'
+FUZZIFY volumen
+        TERM pequeno := trape 0 0 1 4;
+        TERM mediano := trian 1 5 9;
+        TERM grande := trape 6 9 10 10;
+END_FUZZIFY
+
+// Defuzzificación de la variable de salida 'temperatura'
+DEFUZZIFY temperatura
+        TERM baja := trape 165 165 175 185;
+        TERM media := trian 180 195 210;
+        TERM alta := trape 205 215 225 225;
 
         METHOD : COG;		// Usa el metodo de 'Centro de Gravedad'
         DEFAULT := 0;		// Valor por defecto si ninguna regla activa el defuzzificador
 END_DEFUZZIFY
-
-// Si se tienen mas variables de salida se hace un bloque por cada una
-//DEFUZZIFY otra_var
-//      .
-//      .
-//      .
-//END_DEFUZZIFY
 
 // Reglas de inferencia
 RULEBLOCK No1
