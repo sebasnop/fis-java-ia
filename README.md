@@ -27,11 +27,15 @@ Se está horneando un pastel con:
 
 ### Imagen de salida
 
-A continuación se muestran las gráficas de entrada y salida del FIS en Java [Gráficas](https://i.imgur.com/55wVxK1.png "Gráficas de entrada y salida FIS Java").
+A continuación se muestran las gráficas de entrada y salida del FIS en Java 
+
+![Gráficas](https://i.imgur.com/55wVxK1.png "Gráficas de entrada y salida FIS Java")
 
 
 
-Y la tempreatura obtenida es la siguiente: [Resultado](https://i.imgur.com/iK1Nafz.png "Resultados FIS Java")
+Y la tempreatura obtenida es la siguiente: 
+
+![Resultado](https://i.imgur.com/iK1Nafz.png "Resultados FIS Java")
 
 
 
